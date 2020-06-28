@@ -114,6 +114,10 @@ functions:
 
   SendUploadNotifications:
     handler: src/lambda/s3/sendNotifications.handler
+    environment:
+      STAGE: ${self:provider.stage}
+      API_ID:
+        Ref: WebsocketsApi
 
   ConnectHandler:
     handler: src/lambda/websocket/connect.handler
